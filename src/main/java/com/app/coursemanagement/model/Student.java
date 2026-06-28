@@ -9,23 +9,23 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "users")
 @Data
-public class User {
+@Table(name = "students")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false)
-    private String fullName;
-
-    @Column(nullable = false, unique = true)
-    private String email;
-    @Column(nullable = false)
-    private String password;
-
+    @Column(unique = true, nullable = false)
+    private String rollNumber;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Department department;
+    private int admissionYear;
+    private int semester;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
