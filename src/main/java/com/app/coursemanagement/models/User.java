@@ -1,4 +1,4 @@
-package com.app.coursemanagement.model;
+package com.app.coursemanagement.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
